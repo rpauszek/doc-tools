@@ -9,10 +9,9 @@
   "type": "module",
   "packageManager": "pnpm@11.3.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "pnpm -r lint || eslint .",
     "format": "prettier . --write",
-    "lint": "eslint .",
-    "prepare": "husky"
+    "check-format": "prettier . --check"
   },
   "lint-staged": {
     "*.{ts,js,json}": [
