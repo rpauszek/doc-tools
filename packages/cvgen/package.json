@@ -9,7 +9,8 @@
   "scripts": {
     "lint": "eslint .",
     "format": "prettier . --write",
-    "dev": "tsx src/index.ts"
+    "dev": "tsx src/index.ts",
+    "build": "tsup src/index.ts --format esm --dts --out-dir dist"
   },
   "keywords": [],
   "author": "",

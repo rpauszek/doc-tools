@@ -68,3 +68,52 @@ open -a Fork
 ```
 
 This ensures the app inherits your shell environment (PATH, pnpm, fnm, etc.). If the app is launched from the macOS Dock or Finder, Git hooks may fail due to missing `pnpm` in PATH.
+
+## 🏗 Build & Production Workflow
+
+This monorepo separates development and production execution.
+
+### Build packages
+
+Build a specific package:
+
+```bash
+pnpm --filter @doc-tools/cvgen build
+pnpm --filter @doc-tools/docgen build
+```
+
+Each package outputs compiled JavaScript to:
+
+```
+dist/
+```
+
+Example:
+
+```
+packages/cvgen/dist/index.js
+```
+
+### Run production build
+
+You can run the compiled CLI directly with Node:
+
+```bash
+node packages/cvgen/dist/index.js
+```
+
+This is the production-equivalent execution path (no `tsx` involved).
+
+### Development vs Production
+
+| Mode       | Command                   | Purpose              |
+| ---------- | ------------------------- | -------------------- |
+| Dev        | `tsx src/index.ts`        | Fast iteration       |
+| Production | `node dist/index.js`      | Real execution       |
+| Build      | `tsup` via package script | Generate dist output |
+
+### 📌 Notes
+
+- Development uses `tsx` for fast TypeScript execution
+- Production relies entirely on compiled output in `dist/`
+- Each package is built and run independently within the monorepo
