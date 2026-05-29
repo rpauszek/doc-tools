@@ -4,5 +4,12 @@
     { "path": "./packages/core" },
     { "path": "./packages/cvgen" },
     { "path": "./packages/docgen" }
-  ]
+  ],
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "types": ["node"]
+  }
 }
