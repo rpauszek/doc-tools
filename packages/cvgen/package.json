@@ -4,16 +4,22 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@doc-tools/core": "workspace:*"
+    "@doc-tools/core": "workspace:*",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6"
   },
   "scripts": {
     "lint": "eslint .",
     "format": "prettier . --write",
-    "dev": "tsx src/index.ts",
-    "build": "tsup src/index.ts --format esm --dts --out-dir dist"
+    "dev": "tsx src/index.tsx",
+    "build": "tsup src/index.tsx --format esm --dts --out-dir dist"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3"
+  }
 }

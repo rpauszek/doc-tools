@@ -1,8 +1,8 @@
+import { writeFileSync } from "node:fs";
 import puppeteer from "puppeteer";
-import fs from "fs";
 
 export function renderHtml(htmlContent: string, outputPath: string) {
-  fs.writeFileSync(outputPath, htmlContent, "utf-8");
+  writeFileSync(outputPath, htmlContent, "utf-8");
   console.log(`Saved debug HTML to ${outputPath}`);
 }
 
