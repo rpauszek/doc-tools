@@ -270,6 +270,12 @@ importers:
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.1
+      '@types/react':
+        specifier: ^19.2.15
+        version: 19.2.15
+      '@types/react-dom':
+        specifier: ^19.2.3
+        version: 19.2.3(@types/react@19.2.15)
       chokidar:
         specifier: ^5.0.0
         version: 5.0.0
@@ -321,6 +327,12 @@ importers:
       puppeteer:
         specifier: ^25.0.4
         version: 25.0.4(typescript@5.9.3)
+      react:
+        specifier: ^19.2.6
+        version: 19.2.6
+      react-dom:
+        specifier: ^19.2.6
+        version: 19.2.6(react@19.2.6)
 
   packages/cvgen:
     dependencies:
