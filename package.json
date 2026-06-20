@@ -11,7 +11,9 @@
   "scripts": {
     "lint": "pnpm -r lint || eslint .",
     "format": "prettier . --write",
-    "check-format": "prettier . --check"
+    "check-format": "prettier . --check",
+    "icons": "pnpm exec node scripts/generate-icons.mjs",
+    "icons:watch": "pnpm node scripts/watch-icons.mjs"
   },
   "lint-staged": {
     "*.{ts,js,json}": [
@@ -21,15 +23,19 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@svgr/cli": "^8.1.0",
     "@types/node": "^25.9.1",
+    "chokidar": "^5.0.0",
     "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",
+    "fast-glob": "^3.3.3",
     "globals": "^17.6.0",
     "husky": "^9.1.7",
     "jiti": "^2.7.0",
     "lint-staged": "^17.0.5",
     "prettier": "^3.8.3",
+    "svgo": "^4.0.1",
     "tsup": "^8.5.1",
     "tsx": "^4.22.3",
     "typescript": "^5.9.3",

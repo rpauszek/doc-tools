@@ -6,6 +6,7 @@ import { ensureOutputDir } from "@doc-tools/core/utils";
 
 import { renderToStaticMarkup } from "react-dom/server";
 import { TextBox } from "./components/TextBox.js";
+import { TestIcon } from "./components/TestIcon.js";
 
 console.log(getGreeting("CVGen"));
 
@@ -14,10 +15,13 @@ const htmlOutputPath = join(outputDir, "test.html");
 const pdfOutputPath = join(outputDir, "test.pdf");
 console.log(htmlOutputPath);
 
-// const htmlContent = "<html><h1>Hello world!</h1></html>";
 
 const htmlContent = renderToStaticMarkup(
-  <TextBox text="Hello React" />,
+  <div>
+    <TextBox text="Hello React" />
+    <TestIcon />
+  </div>
+
 );
 renderHtml(htmlContent, htmlOutputPath);
 renderPdf(htmlContent, pdfOutputPath);
