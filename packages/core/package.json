@@ -4,8 +4,7 @@
   "description": "",
   "exports": {
     ".": "./src/index.ts",
-    "./render": "./src/render.ts",
-    "./utils": "./src/utils.ts"
+    "./paths": "./src/paths.ts"
   },
   "scripts": {
     "lint": "eslint .",

@@ -1,10 +1,8 @@
 import path from "node:path";
 import fs from "node:fs";
 
-import { getGreeting } from "@doc-tools/core";
-import { renderHtml, renderPdf } from "@doc-tools/core/render";
-import { ensureOutputDir, packagesRoot } from "@doc-tools/core/utils";
-import { Document } from "@doc-tools/core";
+import { getGreeting, renderHtml, renderPdf, ensureOutputDir, Document } from "@doc-tools/core";
+import { packagesRoot } from "@doc-tools/core/paths";
 
 import { renderToStaticMarkup } from "react-dom/server";
 import { TextBox } from "./components/TextBox.js";
@@ -26,7 +24,7 @@ const htmlContent = renderToStaticMarkup(
     <SideBar text="this is my sidebar text" />
     <TextBox text="Hello React" />
     <TestIcon />
-  </Document>
+  </Document>,
 );
 renderHtml(htmlContent, htmlOutputPath);
 renderPdf(htmlContent, pdfOutputPath);
