@@ -21,18 +21,16 @@ execSync(`pnpm svgo -f ${inputDir} -o ${inputDir}`, {
 });
 
 // 3. Generate React components (NO index file)
-execSync(
-  `pnpm exec svgr ${inputDir} --out-dir ${outputDir} --typescript --icon --no-index`,
-  { stdio: "inherit" }
-);
+execSync(`pnpm exec svgr ${inputDir} --out-dir ${outputDir} --typescript --icon --no-index`, {
+  stdio: "inherit",
+});
 
 // 4. Generate barrel file
 // SVGR auto-generated index.ts is old CommonJS style, do this custom to match ES module style
 const imports = svgFiles.map((file) => {
   const basename = path.basename(file, ".svg");
-  const name = basename.charAt(0).toUpperCase() + basename.slice(1)
-  const componentName =
-    name + "Icon";
+  const name = basename.charAt(0).toUpperCase() + basename.slice(1);
+  const componentName = name + "Icon";
 
   return `export { default as ${componentName} } from "./generated/icons/${name}.js";`;
 });

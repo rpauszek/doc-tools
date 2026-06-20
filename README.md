@@ -137,9 +137,9 @@ Instead, a custom `icons.ts` file is generated to define the public API explicit
 
 This avoids:
 
-* Node ESM resolution issues
-* unstable generated exports
-* uncontrolled naming
+- Node ESM resolution issues
+- unstable generated exports
+- uncontrolled naming
 
 #### 4. Controlled public API
 
@@ -183,10 +183,10 @@ This allows icon color and size to be controlled via CSS.
 
 This pipeline was designed to:
 
-* keep SVG assets source-controlled and clean
-* generate type-safe React components
-* avoid bundler-specific SVG handling
-* enable reuse across CV layouts and future document tools
+- keep SVG assets source-controlled and clean
+- generate type-safe React components
+- avoid bundler-specific SVG handling
+- enable reuse across CV layouts and future document tools
 
 ## 🏗 Build & Production Workflow
 

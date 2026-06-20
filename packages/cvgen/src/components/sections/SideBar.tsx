@@ -1,7 +1,3 @@
 export function SideBar({ text }: { text: string }) {
-  return (
-    <div className="sidebar">
-      {text}
-    </div>
-  );
+  return <div className="sidebar">{text}</div>;
 }
