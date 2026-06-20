@@ -1,4 +1,3 @@
-// src/components/TextBox.tsx
 export function TextBox({ text }: { text: string }) {
   return (
     <div
