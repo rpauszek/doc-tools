@@ -96,27 +96,22 @@ Puppeteer → PDF output
 ### 📁 Directory structure
 
 ```
-packages/cvgen/
+packages/cvgen/src/
 ├── assets/
-│   └── icons/                  # Source SVG files
-│
-└── src/
-    ├── generated/
-    │   └── icons/              # Auto-generated React components
-    │
-    └── icons.ts                # Manually generated public API
+│   └── icons/
+│       ├── generated/          # Auto-generated React components
+│       └── svg/                # Source SVG files
+└── icons.ts                    # Programmatically generated public API
 ```
 
 ---
 
 ### ⚙️ Build process
 
-Icons are generated via:
+Icons are generated via the `icons` script which runs `scripts/generate-icons.mjs`:
 
 ```bash
-pnpm svgo -f assets/icons -o assets/icons
-pnpm exec svgr assets/icons --out-dir src/generated/icons --typescript --icon --no-index
-node scripts/generate-icons.mjs
+pnpm icons
 ```
 
 ---
@@ -148,18 +143,6 @@ Only `icons.ts` is imported by application code:
 ```ts
 import { PythonIcon } from "./icons.js";
 ```
-
----
-
-### 🔁 Development workflow
-
-A watch mode can be used to automatically regenerate icons on change:
-
-```bash
-pnpm icons:watch
-```
-
-This triggers rebuilds whenever SVG assets are modified.
 
 ---
 
