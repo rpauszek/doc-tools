@@ -1,8 +1,7 @@
 import path from "node:path";
 import fs from "node:fs";
 
-import { getGreeting, renderHtml, renderPdf, ensureOutputDir, Document } from "@doc-tools/core";
-import { packagesRoot } from "@doc-tools/core/paths";
+import { getGreeting, renderHtml, renderPdf, ensureOutputDir, getDir, Document } from "@doc-tools/core";
 
 import { renderToStaticMarkup } from "react-dom/server";
 import { TextBox } from "./components/TextBox.js";
@@ -11,7 +10,8 @@ import { SideBar } from "./components/sections/SideBar.js";
 
 console.log(getGreeting("CVGen"));
 
-const cssBaseFile = path.join(packagesRoot, "cvgen/src/styles/base.css");
+const __dirname = getDir(import.meta.url);
+const cssBaseFile = path.join(__dirname, "styles/base.css");
 const css = fs.readFileSync(cssBaseFile, "utf8");
 
 const outputDir = await ensureOutputDir("cvgen");
