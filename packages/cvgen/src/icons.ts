@@ -1,2 +1,2 @@
-export { default as MailIcon } from "./generated/icons/Mail.js";
-export { default as PythonIcon } from "./generated/icons/Python.js";
+export { default as MailIcon } from "./assets/icons/generated/Mail.js";
+export { default as PythonIcon } from "./assets/icons/generated/Python.js";

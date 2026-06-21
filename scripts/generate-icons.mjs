@@ -3,8 +3,8 @@ import fg from "fast-glob";
 import fs from "node:fs";
 import path from "node:path";
 
-const inputDir = "packages/cvgen/assets/icons";
-const outputDir = "packages/cvgen/src/generated/icons";
+const inputDir = "packages/cvgen/src/assets/icons/svg";
+const outputDir = "packages/cvgen/src/assets/icons/generated";
 const barrelFile = "packages/cvgen/src/icons.ts";
 
 // 1. Find icons
@@ -32,7 +32,7 @@ const imports = svgFiles.map((file) => {
   const name = basename.charAt(0).toUpperCase() + basename.slice(1);
   const componentName = name + "Icon";
 
-  return `export { default as ${componentName} } from "./generated/icons/${name}.js";`;
+  return `export { default as ${componentName} } from "./assets/icons/generated/${name}.js";`;
 });
 
 fs.writeFileSync(barrelFile, imports.join("\n") + "\n");

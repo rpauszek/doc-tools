@@ -12,8 +12,7 @@
     "lint": "pnpm -r lint || eslint .",
     "format": "prettier . --write",
     "check-format": "prettier . --check",
-    "icons": "pnpm exec node scripts/generate-icons.mjs",
-    "icons:watch": "pnpm node scripts/watch-icons.mjs"
+    "icons": "pnpm exec node scripts/generate-icons.mjs"
   },
   "lint-staged": {
     "*.{ts,js,json}": [
