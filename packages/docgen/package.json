@@ -2,15 +2,15 @@
   "name": "@doc-tools/docgen",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "dependencies": {
     "@doc-tools/core": "workspace:*"
   },
   "scripts": {
     "lint": "eslint .",
     "format": "prettier . --write",
-    "dev": "tsx src/index.ts",
-    "build": "tsup src/index.ts --format esm --dts --out-dir dist"
+    "dev": "tsx src/main.ts",
+    "build": "tsup src/main.ts --format esm --dts --out-dir dist"
   },
   "keywords": [],
   "author": "",

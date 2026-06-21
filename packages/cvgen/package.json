@@ -2,7 +2,7 @@
   "name": "@doc-tools/cvgen",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "dependencies": {
     "@doc-tools/core": "workspace:*",
     "react": "^19.2.6",
@@ -11,8 +11,8 @@
   "scripts": {
     "lint": "eslint .",
     "format": "prettier . --write",
-    "dev": "tsx src/index.tsx",
-    "build": "tsup src/index.tsx --format esm --dts --out-dir dist"
+    "dev": "tsx src/main.tsx",
+    "build": "tsup src/main.tsx --format esm --dts --out-dir dist"
   },
   "keywords": [],
   "author": "",
