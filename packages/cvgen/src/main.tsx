@@ -8,6 +8,7 @@ import { renderHtml, renderPdf, ensureOutputDir, getDir, Document } from "@doc-t
 import { renderToStaticMarkup } from "react-dom/server";
 import { TestIcon } from "./components/TestIcon.js";
 import { SideBar } from "./components/SideBar.js";
+import { Section } from "./components/Section.js";
 import { Header } from "./components/Header.js";
 import { Job } from "./components/Job.js";
 import { Education } from "./components/Education.js";
@@ -38,14 +39,18 @@ const pdfOutputPath = path.join(outputDir, "test.pdf");
 const htmlContent = renderToStaticMarkup(
   <Document css={css}>
     <SideBar>
-      {cv.education.map((edu, i) => (
-        <Education key={i} {...edu} />
-      ))}
+      <Section title="Education">
+        {cv.education.map((edu, i) => (
+          <Education key={i} {...edu} />
+        ))}
+      </Section>
     </SideBar>
     <Header name={cv.name} tagline={cv.tagline} />
-    {cv.experience.map((job, i) => (
-      <Job key={i} {...job} />
-    ))}
+    <Section title="Professional Experience">
+      {cv.experience.map((job, i) => (
+        <Job key={i} {...job} />
+      ))}
+    </Section>
     <TestIcon />
   </Document>,
 );

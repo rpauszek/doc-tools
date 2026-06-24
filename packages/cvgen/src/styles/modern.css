@@ -13,8 +13,14 @@
   background-color: coral;
 }
 
-.title {
+.header .title {
   font-size: 48pt;
+  font-weight: 900;
+}
+
+.section .title {
+  font-size: 14pt;
+  font-weight: 700;
 }
 
 .job {
