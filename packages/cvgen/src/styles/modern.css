@@ -10,9 +10,10 @@
 }
 
 .header {
-    background-color: coral;
+  background-color: coral;
 }
 
 .title {
-    font-size: 48pt;
+  font-size: 48pt;
+  color: blue;
 }
