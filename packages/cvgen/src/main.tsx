@@ -8,8 +8,8 @@ import { renderHtml, renderPdf, ensureOutputDir, getDir, Document } from "@doc-t
 import { renderToStaticMarkup } from "react-dom/server";
 import { TextBox } from "./components/TextBox.js";
 import { TestIcon } from "./components/TestIcon.js";
-import { SideBar } from "./components/sections/SideBar.js";
-import { Header } from "./components/sections/Header.js";
+import { SideBar } from "./components/SideBar.js";
+import { Header } from "./components/Header.js";
 
 function loadCvYaml(cvPath: string): CvData {
   const file = fs.readFileSync(cvPath, "utf-8");
