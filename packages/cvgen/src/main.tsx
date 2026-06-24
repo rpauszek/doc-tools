@@ -3,14 +3,7 @@ import fs from "node:fs";
 import YAML from "yaml";
 
 import { CvData } from "./types.js";
-import {
-  getGreeting,
-  renderHtml,
-  renderPdf,
-  ensureOutputDir,
-  getDir,
-  Document,
-} from "@doc-tools/core";
+import { renderHtml, renderPdf, ensureOutputDir, getDir, Document } from "@doc-tools/core";
 
 import { renderToStaticMarkup } from "react-dom/server";
 import { TextBox } from "./components/TextBox.js";
@@ -26,9 +19,7 @@ function loadCvYaml(cvPath: string): CvData {
 function loadStyles(styleKinds: string[]) {
   const styles = ["base", ...styleKinds];
   return styles
-    .map((name) =>
-      fs.readFileSync(path.join(__dirname, `styles/${name}.css`), "utf8")
-    )
+    .map((name) => fs.readFileSync(path.join(__dirname, `styles/${name}.css`), "utf8"))
     .join("\n");
 }
 
@@ -37,7 +28,7 @@ function loadStyles(styleKinds: string[]) {
 const __dirname = getDir(import.meta.url);
 const css = loadStyles(["modern"]);
 const cv = loadCvYaml(path.join(__dirname, "assets/input/cv.yml"));
-console.log(cv)
+console.log(cv);
 
 const outputDir = await ensureOutputDir("cvgen");
 const htmlOutputPath = path.join(outputDir, "test.html");
