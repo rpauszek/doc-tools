@@ -10,7 +10,7 @@ export interface DatesRange {
   end?: string; // undefined means present
 }
 
-interface EducationData {
+export interface EducationData {
   degree: string;
   institution: string;
   location: string;

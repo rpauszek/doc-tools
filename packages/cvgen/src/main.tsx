@@ -10,6 +10,7 @@ import { TestIcon } from "./components/TestIcon.js";
 import { SideBar } from "./components/SideBar.js";
 import { Header } from "./components/Header.js";
 import { Job } from "./components/Job.js";
+import { Education } from "./components/Education.js";
 
 function loadCvYaml(cvPath: string): CvData {
   const file = fs.readFileSync(cvPath, "utf-8");
@@ -36,7 +37,11 @@ const pdfOutputPath = path.join(outputDir, "test.pdf");
 
 const htmlContent = renderToStaticMarkup(
   <Document css={css}>
-    <SideBar text="this is my sidebar text" />
+    <SideBar>
+      {cv.education.map((edu, i) => (
+        <Education key={i} {...edu} />
+      ))}
+    </SideBar>
     <Header name={cv.name} tagline={cv.tagline} />
     {cv.experience.map((job, i) => (
       <Job key={i} {...job} />
