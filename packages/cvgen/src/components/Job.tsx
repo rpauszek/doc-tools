@@ -1,13 +1,17 @@
 import { JobData } from "../types.js";
+import { Row } from "./Row.js";
 import { Dates } from "./Dates.js";
 
 export function Job({ title, company, location, dates, bullets }: JobData) {
   return (
     <div className="job">
-      <div>{title}</div>
+      <Row>
+        <div>{title}</div>
+        <Dates {...dates} />
+      </Row>
+
       <div>{company}</div>
       {location && <div>{location}</div>}
-      <Dates {...dates} />
 
       {bullets?.length && (
         <ul>
