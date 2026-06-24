@@ -3,7 +3,6 @@ export function Header({ name, tagline }: { name: string; tagline: string | unde
     <div className="header">
       <div className="title">{name}</div>
       {tagline ?? <div className="tagline">{tagline}</div>}
-      <div>placeholder2</div>
     </div>
   );
 }

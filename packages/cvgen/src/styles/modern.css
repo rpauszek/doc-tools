@@ -15,5 +15,8 @@
 
 .title {
   font-size: 48pt;
-  color: blue;
+}
+
+.job {
+  margin-bottom: 25px;
 }

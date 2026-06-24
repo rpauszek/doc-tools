@@ -6,10 +6,10 @@ import { CvData } from "./types.js";
 import { renderHtml, renderPdf, ensureOutputDir, getDir, Document } from "@doc-tools/core";
 
 import { renderToStaticMarkup } from "react-dom/server";
-import { TextBox } from "./components/TextBox.js";
 import { TestIcon } from "./components/TestIcon.js";
 import { SideBar } from "./components/SideBar.js";
 import { Header } from "./components/Header.js";
+import { Job } from "./components/Job.js";
 
 function loadCvYaml(cvPath: string): CvData {
   const file = fs.readFileSync(cvPath, "utf-8");
@@ -38,7 +38,9 @@ const htmlContent = renderToStaticMarkup(
   <Document css={css}>
     <SideBar text="this is my sidebar text" />
     <Header name={cv.name} tagline={cv.tagline} />
-    <TextBox text="Hello React" />
+    {cv.experience.map((job, i) => (
+      <Job key={i} {...job} />
+    ))}
     <TestIcon />
   </Document>,
 );

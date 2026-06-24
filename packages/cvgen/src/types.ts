@@ -10,14 +10,14 @@ interface Dates {
   end?: string; // undefined means present
 }
 
-interface Education {
+interface EducationData {
   degree: string;
   institution: string;
   location: string;
   dates: Dates;
 }
 
-interface Job {
+export interface JobData {
   title: string;
   company: string;
   location?: string;
@@ -36,7 +36,7 @@ export interface CvData {
   tagline?: string;
   contact: ContactItem[];
   summary?: string;
-  education: Education[];
-  experience: Job[];
+  education: EducationData[];
+  experience: JobData[];
   skills: SkillsCategory[];
 }
