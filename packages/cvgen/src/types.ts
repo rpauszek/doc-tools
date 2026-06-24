@@ -5,7 +5,7 @@ interface ContactItem {
   link?: string;
 }
 
-interface Dates {
+export interface DatesRange {
   start: string;
   end?: string; // undefined means present
 }
@@ -14,14 +14,14 @@ interface EducationData {
   degree: string;
   institution: string;
   location: string;
-  dates: Dates;
+  dates: DatesRange;
 }
 
 export interface JobData {
   title: string;
   company: string;
   location?: string;
-  dates: Dates;
+  dates: DatesRange;
   bullets?: string[];
 }
 
