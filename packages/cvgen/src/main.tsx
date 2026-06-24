@@ -1,17 +1,11 @@
 import path from "node:path";
 import fs from "node:fs";
 import YAML from "yaml";
+import { renderToStaticMarkup } from "react-dom/server";
 
 import { CvData } from "./types.js";
-import { renderHtml, renderPdf, ensureOutputDir, getDir, Document } from "@doc-tools/core";
-
-import { renderToStaticMarkup } from "react-dom/server";
-import { TestIcon } from "./components/TestIcon.js";
-import { SideBar } from "./components/SideBar.js";
-import { Section } from "./components/Section.js";
-import { Header } from "./components/Header.js";
-import { Job } from "./components/Job.js";
-import { Education } from "./components/Education.js";
+import { renderHtml, renderPdf, ensureOutputDir, getDir } from "@doc-tools/core";
+import { CV } from "./components/CV.js";
 
 function loadCvYaml(cvPath: string): CvData {
   const file = fs.readFileSync(cvPath, "utf-8");
@@ -36,23 +30,6 @@ const outputDir = await ensureOutputDir("cvgen");
 const htmlOutputPath = path.join(outputDir, "test.html");
 const pdfOutputPath = path.join(outputDir, "test.pdf");
 
-const htmlContent = renderToStaticMarkup(
-  <Document css={css}>
-    <SideBar>
-      <Section title="Education">
-        {cv.education.map((edu, i) => (
-          <Education key={i} {...edu} />
-        ))}
-      </Section>
-    </SideBar>
-    <Header name={cv.name} tagline={cv.tagline} />
-    <Section title="Professional Experience">
-      {cv.experience.map((job, i) => (
-        <Job key={i} {...job} />
-      ))}
-    </Section>
-    <TestIcon />
-  </Document>,
-);
+const htmlContent = renderToStaticMarkup(<CV css={css} cv={cv} />);
 renderHtml(htmlContent, htmlOutputPath);
 renderPdf(htmlContent, pdfOutputPath);
