@@ -5,6 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 
 import { CvData } from "./types.js";
 import { renderHtml, renderPdf, ensureOutputDir, getDir } from "@doc-tools/core";
+import { parseCli } from "./cli.js";
 import { CV } from "./components/CV.js";
 
 function loadCvYaml(cvPath: string): CvData {
@@ -22,9 +23,12 @@ function loadStyles(styleKinds: string[]) {
 // console.log(getGreeting("CVGen"));
 
 const __dirname = getDir(import.meta.url);
-const css = loadStyles(["modern"]);
-const cv = loadCvYaml(path.join(__dirname, "assets/input/cv.yml"));
-console.log(cv);
+
+const options = parseCli();
+console.log(options);
+
+const css = loadStyles([options.theme]);
+const cv = loadCvYaml(options.input);
 
 const outputDir = await ensureOutputDir("cvgen");
 const htmlOutputPath = path.join(outputDir, "test.html");

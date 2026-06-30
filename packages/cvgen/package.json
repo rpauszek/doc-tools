@@ -5,6 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "@doc-tools/core": "workspace:*",
+    "commander": "^15.0.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },

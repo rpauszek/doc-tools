@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
-    "@doc-tools/core": "workspace:*"
+    "@doc-tools/core": "workspace:*",
+    "commander": "^15.0.0"
   },
   "scripts": {
     "lint": "eslint .",
