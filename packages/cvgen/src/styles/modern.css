@@ -5,28 +5,45 @@
   box-sizing: border-box;
   margin-right: 20px;
   padding-right: 20px;
-  border-right: solid 1px var(--color-accent);
-  background-color: lime;
+  border-right: solid 1px blue;
 }
 
-.header {
-  background-color: coral;
+.cv-header {
+  margin-bottom: 10px;
 }
 
-.header .title {
-  font-size: 48pt;
+.cv-header .title {
+  font-size: 36pt;
   font-weight: 900;
+  margin-bottom: 5px;
 }
 
-.section .title {
+.cv-header .tagline {
+  font-size: 12pt;
+  font-weight: 700px;
+}
+
+.section > .title {
   font-size: 14pt;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .job {
   margin-bottom: 25px;
 }
 
-.job .dates {
+.job .header {
+  margin-bottom: 10px;
+}
+
+.job .header > .dates {
   margin-left: auto;
+  margin-bottom: 3px;
+  color: blue;
+  font-weight: 700;
+}
+
+.job .header > .title {
+  font-weight: 700;
 }

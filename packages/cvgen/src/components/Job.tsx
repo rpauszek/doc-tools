@@ -5,13 +5,14 @@ import { Dates } from "./Dates.js";
 export function Job({ title, company, location, dates, bullets }: JobData) {
   return (
     <div className="job">
-      <Row>
-        <div>{title}</div>
+      <div className="header">
         <Dates {...dates} />
-      </Row>
-
-      <div>{company}</div>
-      {location && <div>{location}</div>}
+        <div className="title">{title}</div>
+        <Row delimiter="|">
+          <div>{company}</div>
+          {location && <div>{location}</div>}
+        </Row>
+      </div>
 
       {bullets?.length && (
         <ul>
