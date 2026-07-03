@@ -23,6 +23,10 @@
   font-weight: 700px;
 }
 
+.section {
+  margin-bottom: 10px;
+}
+
 .section > .title {
   font-size: 14pt;
   font-weight: 700;

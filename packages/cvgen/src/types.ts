@@ -1,4 +1,4 @@
-interface ContactItem {
+export interface ContactItem {
   type: "email | phone | location | website | linkedin | github | gitlab ";
   display: string;
   icon: string;
