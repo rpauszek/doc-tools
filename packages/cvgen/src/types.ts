@@ -1,5 +1,7 @@
+import { IconName } from "./icons.js";
+
 export interface ContactItem {
-  type: "email | phone | location | website | linkedin | github | gitlab ";
+  type: IconName;
   display: string;
   icon: string;
   link?: string;
