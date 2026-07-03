@@ -27,14 +27,24 @@ execSync(`pnpm exec svgr ${inputDir} --out-dir ${outputDir} --typescript --icon 
 
 // 4. Generate barrel file
 // SVGR auto-generated index.ts is old CommonJS style, do this custom to match ES module style
-const imports = svgFiles.map((file) => {
-  const basename = path.basename(file, ".svg");
-  const name = basename.charAt(0).toUpperCase() + basename.slice(1);
-  const componentName = name + "Icon";
 
-  return `export { default as ${componentName} } from "./assets/icons/generated/${name}.js";`;
-});
+function upperFirst(name) {
+  return name.charAt(0).toUpperCase() + name.slice(1);
+}
 
-fs.writeFileSync(barrelFile, imports.join("\n") + "\n");
+const names = svgFiles.map((file) => path.basename(file, ".svg")); // lower; python
+const basenames = names.map((name) => upperFirst(name)); // upper; Python
+
+const imports = basenames
+  .map(
+    (name) => `import { default as ${name + "Icon"} } from "./assets/icons/generated/${name}.js";`,
+  )
+  .join("\n");
+
+const lookups = names.map((name) => `  ${name}: ${upperFirst(name) + "Icon"}`).join(",\n");
+const lut = "const icons = {\n" + lookups + "\n} as const;";
+const footer = ["export { icons };", "export type IconName = keyof typeof icons;"].join("\n");
+
+fs.writeFileSync(barrelFile, [imports, lut, footer].join("\n\n") + "\n");
 
 console.log(`✅ Generated ${svgFiles.length} icons + icons.ts`);

@@ -1,9 +1,11 @@
-import { PythonIcon } from "../icons.js";
+import { icons } from "../icons.js";
 
 export function TestIcon() {
+  const Icon = icons["python"];
+
   return (
     <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-      <PythonIcon />
+      <Icon />
       <span>Python</span>
     </div>
   );
