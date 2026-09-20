@@ -18,7 +18,7 @@ export function CV({ css, cv }: CVProps) {
   return (
     <Document css={css}>
       <SideBar>
-        <Section>
+        <Section id="contacts">
           {cv.contact.map((contact, i) => (
             <ContactEntry key={i} {...contact} />
           ))}

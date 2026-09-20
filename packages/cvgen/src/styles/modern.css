@@ -8,6 +8,12 @@
   border-right: solid 1px blue;
 }
 
+#contacts {
+  border-bottom: 1px solid blue;
+  padding-bottom: 7px;
+  margin-bottom: 15px;
+}
+
 .contact-entry {
   margin-bottom: 8px;
 }
